@@ -1,7 +1,5 @@
 # portfolio
 
-> My Portfolio
-
 ## v0.1
 * 執行重點｜以上線為優先
 * 建構規劃｜flex排版, 基本RWD, 靜態呈現
