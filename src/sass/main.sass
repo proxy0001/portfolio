@@ -1,0 +1,210 @@
+// media set
+$media-pc: 960px
+$media-pcs: 959px
+$media-pad: 760px
+$media-pads: 759px
+$media-phone: 480px
+$media-phones: 479px
+
+@mixin respond-to($media)
+  //small mobile
+  @if $media == s-mobile
+    @media only screen and (max-width: $media-phones)
+      @content
+  //small pad    
+  @else if $media == s-pad
+    @media only screen and (min-width: $media-phone) and (max-width: $media-pads) 
+      @content
+  //pad
+  @else if $media == pad
+    @media only screen and (min-width: $media-pad) and (max-width: $media-pcs)
+      @content
+  //pc    
+  @else if $media == pc
+    @media only screen and (min-width: $media-pc)
+      @content
+  //mobile, include small mobile    
+  @else if $media == mobile
+    @media only screen and (max-width: $media-pads)
+      @content
+
+// variable set
+$font-default: 'Avenir', 'Helvetica', 'Arial', 'sans-serif', 'Microsoft JhengHei'
+
+// dp define
+$dp: 4px
+$dp-1: $dp * 1
+$dp-2: $dp * 2
+$dp-3: $dp * 3
+$dp-4: $dp * 4
+$dp-5: $dp * 6
+$dp-6: $dp * 8
+
+// color define
+@function grayScale($percent) 
+  @return darken(#ffffff, $percent)
+// gray scale
+$color-gs-0: #ffffff
+$color-gs-1: grayScale(5%)
+$color-gs-2: grayScale(20%)
+$color-gs-3: grayScale(40%)
+$color-gs-4: grayScale(60%)
+$color-gs-5: grayScale(80%)
+$color-gs-6: #000000
+// main color
+$color-default: #2c3e50
+$color-main: #2c3e50
+// stress color
+$color-stress: #11bb89
+$color-second-stress: #11bb89
+
+// layout config
+$header-min-height: 60px
+$max-width: 960px
+$max-content-width: 720px
+
+// global style set
+* 
+  text-align: left
+  line-height: 1.5
+  letter-spacing: 2px 
+h1,h2,h3,h4,h5,h6,p
+  margin: 0  
+h1,h2
+  color: $color-gs-5
+h3,h4,h5,h6,p
+  color: $color-gs-4
+h1
+  margin-bottom: $dp-4
+hr
+  background-color: $color-gs-4
+  border: 0
+  height: 1px
+  width: 70%
+  text-align: left
+  margin: $dp-1 0 $dp-4
+a, a > *
+  text-decoration: none
+  color: $color-second-stress
+img
+  width: 100%
+  vertical-align: bottom
+
+// vue transition set
+.fade-enter-active, .fade-leave-active 
+  transition: opacity .3s ease
+.fade-enter, .fade-leave-active 
+  opacity: 0;
+
+// layout
+.container
+  max-width: $max-width
+  margin: 0 auto
+  padding: 0 $dp-3
+.content
+  padding: $dp-5 0
+  max-width: $max-content-width
+  margin: 0 auto
+.head
+  flex: 1
+  @include respond-to(mobile)
+    flex: auto
+.body
+  flex: 5
+  @include respond-to(mobile)
+    flex: auto  
+.block
+  padding: $dp-3
+  background-color: $color-gs-1
+  margin-bottom: $dp-5
+// f-column
+@for $i from 1 through 6
+  .f-column-#{$i}
+    display: flex
+    // flex-wrap: wrap
+    flex-direction: column
+    .project
+      display: flex
+      // flex-wrap: wrap  
+      padding: 0 $dp-1 $dp-1 0
+      .subject
+        flex: 2
+      .separate
+        flex: 0
+      .description
+        flex: ( $i * 2 ) + 1
+
+.work
+  padding: $dp-3
+  background-color: $color-gs-1
+  margin-bottom: $dp-6
+  .first
+    margin-bottom: $dp-3
+  .date
+    text-align: right
+    color: $color-gs-4
+    font-size: $dp-3
+  .post
+    margin-bottom: $dp-6
+    padding-left: $dp-5
+  .second
+    margin-bottom: $dp-3
+    padding-left: $dp-5
+  .tags
+    margin-bottom: $dp-1
+    padding-left: $dp-5
+  h2
+    margin-bottom: $dp-3
+  p
+    margin: $dp-1 0
+  .youtube
+    position: relative
+    width: 100%
+    height: 0
+    padding-bottom: 56.25%
+    .video
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 0
+
+button.group
+  outline: none
+  border: 0
+  border-right: 1px solid $color-gs-2
+  background: none
+  margin: $dp-1 0
+  padding: 0 $dp-3
+  color: $color-gs-4
+  &:last-child
+    border: 0
+  &:hover
+    background: $color-stress
+    color: $color-gs-1
+button.tag
+  outline: none
+  border: 0
+  background: none
+  margin: $dp-1 0
+  padding: 0
+  padding-right: $dp-3
+  font-size: $dp-3
+  color: $color-gs-4
+  &:hover
+    color: $color-stress
+
+
+// flex 
+.flexbox
+  display: flex
+  flex-wrap: wrap
+  
+@for $i from 0 through 6
+  .f-#{$i}
+    flex: $i
+
+.f-100
+  flex: auto
+
