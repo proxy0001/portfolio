@@ -89,9 +89,9 @@ export default {
           content: {
             type: 'f-column-2',
             data: [
-              {type: 'text', subject: '程式設計師 3年', display: '李奧貝納股份有限公司'},
-              {type: 'text', subject: '影像後製人員 1年', display: '美好視覺有限公司'},
-              {type: 'text', subject: '電台助理 1年', display: '財團法人蘭恩文教基金會-蘭嶼電台'},
+              {type: 'text', subject: '網站工程師 3年', display: '廣告公司'},
+              {type: 'text', subject: '影像後製人員 1年', display: '影像後製公司'},
+              {type: 'text', subject: '電台助理 1年', display: '電台'},
               {type: 'text', subject: '多媒體動畫藝術學系 畢', display: '國立臺灣藝術大學'},
               {type: 'text', subject: '第三類組 畢', display: '國立臺南第一高級中學'}
             ]
