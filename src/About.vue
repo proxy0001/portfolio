@@ -53,10 +53,6 @@ export default {
             type: 'f-column-4',
             data: [
               {type: 'text', subject: '姓名', display: '張志瑋'},
-              // {type: 'text', subject: '年齡', display: '29'},
-              // {type: 'text', subject: '電話', display: '0926927559'},
-              // {type: 'text', subject: '役別', display: '2010 役畢'},
-              // {type: 'text', subject: '住址', display: '新北市三重區大同南路85巷14號6F'},
               {type: 'mail', subject: 'email', display: 'g.proxy0001@gmail.com', link: 'g.proxy0001@gmail.com'},
               {type: 'url', subject: 'github', display: 'github.com/proxy0001', link: 'https://github.com/proxy0001'},
               {type: 'url', subject: 'website', display: 'proxy0001.com', link: 'http://proxy0001.com'}
