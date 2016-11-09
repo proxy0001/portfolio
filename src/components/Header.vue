@@ -49,11 +49,11 @@ header
   width: 100%
   background: rgba($color-gs-0, .95)
   z-index: 1
+  padding: $dp-3 0
   .flexbox.container
     min-height: $header-min-height
     // justify-content: center
     align-items: center
-
     nav.flexbox
       flex-direction: row-reverse 
       a.router-link-active
@@ -62,7 +62,14 @@ header
       a:hover
         color: $color-main
       a
-        padding-left: $dp-5
+        padding-left: $dp-6
+        +respond-to(mobile)
+          font-size: 3rem
+    p
+      +respond-to(mobile)
+        font-size: 3rem
+        
+          
     nav  
 
 </style>

@@ -25,7 +25,7 @@
               </div>  
             </template>
           </div>  
-          <div class="date" v-if="work.date" v-html="work.date"></div>
+          <p class="date" v-if="work.date" v-html="work.date"></p>
           <a v-if="work.type==='link'" :href="work.data" target="_blank">
           <h2 v-if="work.title" v-html="work.title"></h2></a>
           <h2 v-else="work.title" v-html="work.title"></h2>

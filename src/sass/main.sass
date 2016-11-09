@@ -6,32 +6,35 @@ $media-pads: 759px
 $media-phone: 480px
 $media-phones: 479px
 
-@mixin respond-to($media)
+=respond-to($media)
   //small mobile
   @if $media == s-mobile
-    @media only screen and (max-width: $media-phones)
+    @media only screen and (max-device-width: $media-phones)
       @content
   //small pad    
   @else if $media == s-pad
-    @media only screen and (min-width: $media-phone) and (max-width: $media-pads) 
+    @media only screen and (min-device-width: $media-phone) and (max-device-width: $media-pads) 
       @content
   //pad
   @else if $media == pad
-    @media only screen and (min-width: $media-pad) and (max-width: $media-pcs)
+    @media only screen and (min-device-width: $media-pad) and (max-device-width: $media-pcs)
       @content
   //pc    
   @else if $media == pc
-    @media only screen and (min-width: $media-pc)
+    @media only screen and (min-device-width: $media-pc)
       @content
   //mobile, include small mobile    
   @else if $media == mobile
-    @media only screen and (max-width: $media-pads)
+    @media only screen and (max-device-width: $media-pads)
       @content
+    // @media only screen and (max-width: $media-pads)
+      // @content  
 
 // variable set
 $font-default: 'Avenir', 'Helvetica', 'Arial', 'sans-serif', 'Microsoft JhengHei'
 
 // dp define
+$dp-0: 2px
 $dp: 4px
 $dp-1: $dp * 1
 $dp-2: $dp * 2
@@ -68,21 +71,32 @@ $max-content-width: 720px
   text-align: left
   line-height: 1.5
   letter-spacing: 2px 
+html
+  font-size: 75%
 h1,h2,h3,h4,h5,h6,p
   margin: 0  
+  // font-size: 1rem
+  color: $color-gs-4
 h1,h2
   color: $color-gs-5
-h3,h4,h5,h6,p
+  font-size: 2rem
+  font-weight: 500
+h3,h4,h5,h6,p,span,button
   color: $color-gs-4
+  font-weight: 300
+  font-size: 1.2rem
 h1
   margin-bottom: $dp-4
+  font-size: 3rem
 hr
-  background-color: $color-gs-4
+  background-color: $color-gs-3
   border: 0
   height: 1px
   width: 70%
   text-align: left
   margin: $dp-1 0 $dp-4
+  +respond-to(mobile)
+    margin: $dp-1 0 $dp-4 * 2
 a, a > *
   text-decoration: none
   color: $color-second-stress
@@ -94,7 +108,7 @@ img
 .fade-enter-active, .fade-leave-active 
   transition: opacity .3s ease
 .fade-enter, .fade-leave-active 
-  opacity: 0;
+  opacity: 0
 
 // layout
 .container
@@ -105,56 +119,79 @@ img
   padding: $dp-5 0
   max-width: $max-content-width
   margin: 0 auto
+  +respond-to(mobile)
+    max-width: 100%
 .head
   flex: 1
-  @include respond-to(mobile)
+  +respond-to(mobile)
     flex: auto
 .body
   flex: 5
-  @include respond-to(mobile)
+  +respond-to(mobile)
     flex: auto  
 .block
   padding: $dp-3
   background-color: $color-gs-1
   margin-bottom: $dp-5
+  +respond-to(mobile)
+    padding: $dp-5
+    margin-bottom: $dp-6
 // f-column
-@for $i from 1 through 6
+@for $i from 0 through 9
   .f-column-#{$i}
-    display: flex
-    // flex-wrap: wrap
-    flex-direction: column
-    .project
-      display: flex
-      // flex-wrap: wrap  
-      padding: 0 $dp-1 $dp-1 0
-      .subject
-        flex: 2
-      .separate
-        flex: 0
-      .description
-        flex: ( $i * 2 ) + 1
+    display: flex   
+    flex-direction: row
+    padding: 0 $dp-1 $dp-2 0
+    font-size: 1rem
+    +respond-to(mobile)
+      padding: 0 $dp-1 $dp-6 0
+    *
+      +respond-to(mobile)
+        font-size: 1.8rem    
+    .subject
+      flex: 2
+      margin-right: $dp-2
+      border-right: 1px solid $color-gs-3
+      +respond-to(mobile)
+        margin-right: $dp-4
+    .description
+      flex: ($i + 2)
+      margin-left: $dp-2
 
 .work
   padding: $dp-3
   background-color: $color-gs-1
   margin-bottom: $dp-6
+  +respond-to(mobile)
+      margin-bottom: $dp-6 * 2
   .first
     margin-bottom: $dp-3
+    +respond-to(mobile)
+      margin-bottom: $dp-3 * 2
   .date
-    text-align: right
     color: $color-gs-4
-    font-size: $dp-3
+    font-size: 1rem
+    // text-align: right
+    // width: 100%
   .post
     margin-bottom: $dp-6
     padding-left: $dp-5
+    +respond-to(mobile)
+      margin-bottom: $dp-6 * 2
   .second
     margin-bottom: $dp-3
     padding-left: $dp-5
+    +respond-to(mobile)
+      margin-bottom: $dp-3 * 2
   .tags
     margin-bottom: $dp-1
     padding-left: $dp-5
+    +respond-to(mobile)
+      margin-bottom: $dp-1 * 2
   h2
     margin-bottom: $dp-3
+    +respond-to(mobile)
+      margin-bottom: $dp-3 * 2
   p
     margin: $dp-1 0
   .youtube
@@ -190,11 +227,12 @@ button.tag
   margin: $dp-1 0
   padding: 0
   padding-right: $dp-3
-  font-size: $dp-3
+  font-size: 1rem
   color: $color-gs-4
+  +respond-to(mobile)
+    font-size: 1.2rem
   &:hover
-    color: $color-stress
-
+    color: $color-stress      
 
 // flex 
 .flexbox

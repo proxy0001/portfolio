@@ -18,20 +18,18 @@
           </template>
           <!-- f-column template, depend on block's content type -->  
           <template v-if="getContentType(block.content.type)==='f-column'" v-for="item in block.content.data">
-            <div :class="'f-column'+getColumNumber(block.content.type)">
-              <div class="project">
-                <p class="subject" v-html="item.subject"></p>
-                <p class="separate">｜</p>
-
-                <!--mail, depend on project's data type -->
-                <a class="description" v-if="item.type==='mail'" :href="getLink(item)"><p v-html="item.display"></p></a>
-
-                <!--url, depend on project's data type -->
-                <a class="description" v-if="item.type==='url'" :href="getLink(item)" target="_blank"><p v-html="item.display"></p></a>
-
-                <!--text, depend on project's data type -->
-                <p class="description" v-if="item.type==='text'" v-html="item.display"></p>
-              </div>  
+            <div :class="'f-column' + getColumNumber(block.content.type)">
+              
+                <span class="subject" v-html="item.subject"></span>
+                <span class="description">
+                  <!--mail, depend on project's data type -->
+                  <a v-if="item.type==='mail'" :href="getLink(item)" v-html="item.display"></a>
+                  <!--url, depend on project's data type -->
+                  <a v-if="item.type==='url'" :href="getLink(item)" target="_blank" v-html="item.display"></a>
+                  <!--text, depend on project's data type -->
+                  <p v-if="item.type==='text'" v-html="item.display"></p>
+                </span>  
+              
             </div> 
           </template>
 
@@ -52,7 +50,7 @@ export default {
         {
           title: '基本資料',
           content: {
-            type: 'f-column-5',
+            type: 'f-column-4',
             data: [
               {type: 'text', subject: '姓名', display: '張志瑋'},
               // {type: 'text', subject: '年齡', display: '29'},
@@ -78,7 +76,7 @@ export default {
         {
           title: '技術能力',
           content: {
-            type: 'f-column-5',
+            type: 'f-column-9',
             data: [
               {type: 'text', subject: '網站開發', display: 'Javascript, jquery, HTML, CSS, PHP, MySQL, SQL Server。之前工作幾乎不用框架,大部分需求都是自己撰寫,雖然一開始什麼都不會,但也這樣用最基本的方式寫了三年。離開之後開始接觸其他工具,如node.js, aws, vue, bootstrap, sass, web- pack, git等。'},
               {type: 'text', subject: '視覺設計', display: '有一些設計經驗,會使用Photoshop, Illustrator等繪圖排版軟體。'},
@@ -89,7 +87,7 @@ export default {
         {
           title: '主要學經歷',
           content: {
-            type: 'f-column-1',
+            type: 'f-column-2',
             data: [
               {type: 'text', subject: '程式設計師 3年', display: '李奧貝納股份有限公司'},
               {type: 'text', subject: '影像後製人員 1年', display: '美好視覺有限公司'},
