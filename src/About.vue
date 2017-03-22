@@ -74,9 +74,9 @@ export default {
           content: {
             type: 'f-column-9',
             data: [
-              {type: 'text', subject: '網站開發', display: 'Javascript, jquery, HTML, CSS, PHP, MySQL, SQL Server。之前工作幾乎不用框架,大部分需求都是自己撰寫,雖然一開始什麼都不會,但也這樣用最基本的方式寫了三年。離開之後開始接觸其他工具,如node.js, aws, vue, bootstrap, sass, web- pack, git等。'},
+              {type: 'text', subject: '網站開發', display: 'Javascript, jquery, HTML, CSS, PHP, MySQL, SQLServer。之前工作幾乎不用框架，最多就是用了jquery。當時大部分需求都是自己撰寫，一開始什麼都不會，就這樣寫了三年。前端mvc架構、SPA、data-binding、router、RWD等，回頭看才發現，這些名詞或多或少，自己都有在專案中嘗試實現過。後端會基本的開資料庫、實作api。離開之後開始接觸其他工具， 如node.js ,aws ,vue ,bootstrap ,sass ,web-pack , git等。上一份工作短暫參與了app開發，使用ionic2，前端框架為angular2。'},
               {type: 'text', subject: '視覺設計', display: '有一些設計經驗,會使用Photoshop, Illustrator等繪圖排版軟體。'},
-              {type: 'text', subject: '影片製作', display: '剪接、後製、2D動畫。After Effect比較熟,剪接軟體用過Premiere, Final Cut。'}
+              {type: 'text', subject: '影片製作', display: '待過後製公司，參與過數隻廣告影片的後期製作，大學也做過幾隻手繪動畫。內容包含剪接、後製、特效、2 D 動畫等。軟體的話，After Effect比較熟，剪接軟體用過Premiere ,Final Cut。'}
             ]
           }
         },
